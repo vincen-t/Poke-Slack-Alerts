@@ -24,7 +24,6 @@ py4j==0.10.1
 pyasn1==0.1.8
 pycparser==2.14
 Pygments==2.0.2
-pyhs2==0.8.0
 pymongo==3.0.3
 pyOpenSSL==0.15.1
 python-dateutil==2.5.2
