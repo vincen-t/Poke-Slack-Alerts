@@ -9,25 +9,10 @@ from unidecode import unidecode
 
 app = Flask(__name__)
 
-SLACK_WEBHOOK_SECRET = os.environ.get('SLACK_WEBHOOK_SECRET')
 SLACK_SLASH_SECRET_PULSE = os.environ.get('SLACK_SLASH_SECRET_PULSE')
 SLACK_SLASH_SECRET_SCAN = os.environ.get('SLACK_SLASH_SECRET_SCAN')
 POKEMON_TEST_USER = os.environ.get('POKEMON_TEST_USER')
 POKEMON_TEST_PASSWORD = os.environ.get('POKEMON_TEST_PASSWORD')
-
-## OLD TEST CODE
-@app.route('/poke-slack', methods=['POST'])
-def inbound():
-    if request.form.get('token') == SLACK_WEBHOOK_SECRET:
-        channel = request.form.get('channel_name')
-        username = request.form.get('user_name')
-        text = request.form.get('text')
-        inbound_message = username + " in " + channel + " says: " + text
-        print(inbound_message)
-        core.send_message( "@" + username, "Kicking off a pokemon poll for one hour for: "+ text) 
-        #  Make this do poke-poll for an hour, responding to me.    
-    return Response(), 200
-
 
 @app.route('/poke-ping', methods=['POST'])
 def pollOnce():
