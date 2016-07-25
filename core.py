@@ -308,7 +308,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         # Hunting four nearest cells.
         tmp_float_lat = float_lat
         tmp_float_long = float_long
-        for x in range(0, 4):
+        for x in range(0, 8):
             print ">>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be", time.time() - starttime
             print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
             print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
