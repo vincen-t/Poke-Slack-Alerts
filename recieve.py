@@ -53,7 +53,7 @@ def stalker():
         else:
             core.send_message( "@" + username, "Kicking off a pokemon poll for one hour for: "+ text) 
             q = mp.Queue()
-            p = mp.Process(target=longtask, args=(username, True, shlex.split(unidecode(text))[0],shlex.split(unidecode(text))[1].split(","),))
+            p = mp.Process(target=longtask, args=(username, True, shlex.split(unidecode(text))[0],shlex.split(unidecode(text))[1].lower().split(","),))
             p.start()
             print("Kicked background action to poke-poll!")
         # core.stalk_core(text) 

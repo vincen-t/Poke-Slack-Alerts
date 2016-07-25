@@ -1,7 +1,6 @@
 import os
 from slackclient import SlackClient
 
-
 SLACK_TOKEN = os.environ.get('SLACK_TOKEN', None)
 
 slack_client = SlackClient(SLACK_TOKEN)
@@ -396,7 +395,7 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
             if DEBUG:
                 print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
 
-            if(filter(lambda element: pokemonFriendlyName in element, searchList)):
+            if(filter(lambda element: pokemonFriendlyName.lower() in element, searchList)):
                 # DEBUG, also UGLY
                 if DEBUG:
                     print("Found: %s" % pokemonFriendlyName)
