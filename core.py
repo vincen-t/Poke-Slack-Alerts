@@ -2,6 +2,8 @@ import os
 from slackclient import SlackClient
 
 SLACK_TOKEN = os.environ.get('SLACK_TOKEN', None)
+SCAN_BLOCKS = os.environ.get('SCAN_BLOCKS', None)
+TOTAL_WORKER_LIFETIME = os.environ.get('TOTAL_WORKER_LIFETIME', None)
 
 slack_client = SlackClient(SLACK_TOKEN)
         
@@ -308,7 +310,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         # Hunting four nearest cells.
         tmp_float_lat = float_lat
         tmp_float_long = float_long
-        for x in range(0, 8):
+        for x in range(0, int(SCAN_BLOCKS)):
             print ">>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be", time.time() - starttime
             print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
             print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
@@ -330,7 +332,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
             break
         print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
         sleep(30)
-        if(time.time() - starttime > 3600):
+        if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
