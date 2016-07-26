@@ -394,8 +394,7 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
             pokemonFriendlyName = POKEMONS[poke.pokemon.PokemonId - 1]['Name']
 
             # DEBUG
-            if DEBUG:
-                print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
+            print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
 
             if pokemonFriendlyName.lower() in searchList:
                 # DEBUG, also UGLY
