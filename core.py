@@ -296,10 +296,9 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
             print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely...resetting Session and retrying?"
             print e
             session_reset() ## HACK BUG: Maybe best solution?
-            print ">>>>>>>>> WARN: MAIN: Session reset(?) - trying login again!"           
+            print ">>>>>>>>> WARN: MAIN: Session reset(?) - trying login again!" 
+            access_token = login_ptc(username, password)          
             pass
-                    
-        access_token = login_ptc(username, password)
             
         if access_token is None:
             print('[-] Wrong username/password or refresh was not needed...')
