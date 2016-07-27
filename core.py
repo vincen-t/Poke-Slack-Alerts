@@ -296,7 +296,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         login_time = time.time()
         
         retry_10_times = 0
-        while(retry_10_times < 10)
+        while(retry_10_times < 10):
             try:
                 access_token = login_ptc(username, password)
                 break
