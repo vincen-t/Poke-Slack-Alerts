@@ -34,7 +34,7 @@ SESSION = requests.session()
 SESSION.headers.update({'User-Agent': 'Niantic App'})
 SESSION.verify = False
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG_MODE', None)
 POKEMONS = json.load(open('pokemon.json'))
 
 def send_message(channel_id, message):
@@ -188,7 +188,7 @@ def login_ptc(username, password):
     ticket = None
     try:
         ticket = re.sub('.*ticket=', '', r1.history[0].headers['Location'])
-    except e:
+    except Exception as e:
         if DEBUG:
             print(r1.json()['errors'][0])
         return None
@@ -251,7 +251,7 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
 
 def session_reset():
     global SESSION 
-    SESSION.connection.close()
+    del SESSION
     SESSION = requests.session()
     SESSION.headers.update({'User-Agent': 'Niantic App'})
     SESSION.verify = False
@@ -268,10 +268,11 @@ def main():
     
     if args.debug:
         global DEBUG
-        DEBUG = True
+        DEBUG = False
         print('[!] DEBUG mode on')
 
-    stalk_core(args.username, True, args.password, args.location, args.search.split(","))
+    ## Replace with better test paths later. Yes, this is hard-coded; break out the torches and pitchforks.
+    stalk_core("@batman", True, args.username, args.password, args.location, args.search.split(","))
     
     
 def stalk_core(slack_user, scanRepeatedly, username, password, location, searchList):
@@ -354,7 +355,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                         for val in listReturn:
                             send_message(slack_user, str(val)) 
                     
-                # Now need to move cells   set_location_coords(next.lat().degrees, next.lng().degrees, 0)
+                # Now need to move cells  set_location_coords(next.lat().degrees, next.lng().degrees, 0)
                 if (not scanRepeatedly):
                     print ">>>>>>>>> INFO: MAIN: Breaking out - single scan only."
                     break
@@ -431,9 +432,6 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
             print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
 
             if pokemonFriendlyName.lower() in searchList:
-                # DEBUG, also UGLY
-                if DEBUG:
-                    print("Found: %s" % pokemonFriendlyName)
                 tmpStr=""
                 tmpStr+=pokemonFriendlyName 
                 tmpStr+=" for " 
@@ -448,13 +446,11 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
                 tmpStr+="," 
                 tmpStr+=str(poke.Longitude)
                 outputFoundList.append(tmpStr)
-            
-        print('')
 
 #       Break loop to one-step.
 #        if raw_input('The next cell is located at %s. Keep scanning? [Y/n]' % next) in {'n', 'N'}:
 #            break
-        
+  
         break
 
     return outputFoundList
