@@ -6,6 +6,7 @@ SCAN_BLOCKS = os.environ.get('SCAN_BLOCKS', None)
 TOTAL_WORKER_LIFETIME = os.environ.get('TOTAL_WORKER_LIFETIME', None)
 RPC_ID = int(os.environ.get('RPC_ID', None))
 DEBUG = os.environ.get('DEBUG_STATE', None)
+RADS_TO_M = 6366468.241830914
  
 slack_client = SlackClient(SLACK_TOKEN)
         
@@ -338,7 +339,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     
         while(1):
             try:
-                # Hunting four nearest cells.
+                # Hunting foo nearest cells.
                 tmp_float_lat = float_lat
                 tmp_float_long = float_long
                 for x in range(0, int(SCAN_BLOCKS)):
@@ -346,7 +347,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                     print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
                     print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
                     print ">>>>>>>>> INFO: MAIN: Block sweep count: ", x
-                    listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long)
+                    listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long, float_lat, float_long )
                     print listReturn
                     walk = getNeighbors(tmp_float_lat,tmp_float_long)
                     next = LatLng.from_point(Cell(CellId(walk[2])).get_center())     
@@ -359,8 +360,8 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                     
                 # Now need to move cells  set_location_coords(next.lat().degrees, next.lng().degrees, 0)
                 if (not scanRepeatedly):
-                    print ">>>>>>>>> INFO: MAIN: Breaking out - single scan only."
-                    break
+                    print ">>>>>>>>> INFO: MAIN: Returning - single scan only."
+                    return
                 print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
                 sleep(30)
             except Exception as e:
@@ -369,91 +370,92 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 break 
                 pass
         
-        if((time.time() - starttime > int(TOTAL_WORKER_LIFETIME)) or not scanRepeatedly):
+        if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
+            send_message(slack_user, "Poke-polling concluded! Poll was for: " + searchList) 
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
     # BUG: Eeeeek. Also refactor - NO GLOBALS! Flask: You could also use the session for simple data that is per-user.
+    # Modifying to do 'distance from' as an arbitrary second point (so I can search over there from here and get accurate results)
 
-def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_long):
+def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_long, distance_from_lat, distance_from_long):
 
     origin = LatLng.from_degrees(float_lat, float_long)
     countBlocks = 0
     outputFoundList = []
-    while True:
-        original_lat = float_lat
-        original_long = float_long
-        parent = CellId.from_lat_lng(LatLng.from_degrees(float_lat, float_long)).parent(15)
+    
+    original_lat = float_lat
+    original_long = float_long
+    parent = CellId.from_lat_lng(LatLng.from_degrees(float_lat, float_long)).parent(15)
 
-        h = heartbeat(api_endpoint, access_token, response, float_lat, float_long)
-        hs = [h]
-        seen = set([])
-        for child in parent.children():
-            latlng = LatLng.from_point(Cell(child).get_center())
-            # set_location_coords(latlng.lat().degrees, latlng.lng().degrees, 0)
-            # latlng.lat().degrees = float lat.
-            hs.append(heartbeat(api_endpoint, access_token, response, latlng.lat().degrees, latlng.lng().degrees))
-        # set_location_coords(original_lat, original_long, 0)
+    h = heartbeat(api_endpoint, access_token, response, float_lat, float_long)
+    hs = [h]
+    seen = set([])
+    for child in parent.children():
+        latlng = LatLng.from_point(Cell(child).get_center())
+        # set_location_coords(latlng.lat().degrees, latlng.lng().degrees, 0)
+        # latlng.lat().degrees = float lat.
+        hs.append(heartbeat(api_endpoint, access_token, response, latlng.lat().degrees, latlng.lng().degrees))
+    # set_location_coords(original_lat, original_long, 0)
 
-        visible = []
+    visible = []
 
-        for hh in hs:
-            for cell in hh.cells:
-                for wild in cell.WildPokemon:
-                    hash = wild.SpawnPointId + ':' + str(wild.pokemon.PokemonId)
-                    if (hash not in seen):
-                        visible.append(wild)
-                        seen.add(hash)
+    for hh in hs:
+        for cell in hh.cells:
+            for wild in cell.WildPokemon:
+                hash = wild.SpawnPointId + ':' + str(wild.pokemon.PokemonId)
+                if (hash not in seen):
+                    visible.append(wild)
+                    seen.add(hash)
 
-        print('')
-        for cell in h.cells:
-            if cell.NearbyPokemon:
-                other = LatLng.from_point(Cell(CellId(cell.S2CellId)).get_center())
-                diff = other - origin
-                # print(diff)
-                difflat = diff.lat().degrees
-                difflng = diff.lng().degrees
-                direction = (('N' if difflat >= 0 else 'S') if abs(difflat) > 1e-4 else '')  + (('E' if difflng >= 0 else 'W') if abs(difflng) > 1e-4 else '')
-                
-                print("Within one step of %s (%sm %s from you):" % (other, int(origin.get_distance(other).radians * 6366468.241830914), direction))
-                for poke in cell.NearbyPokemon:
-                    print('    (%s) %s' % (poke.PokedexNumber, POKEMONS[poke.PokedexNumber - 1]['Name']))
-
-        print('')
-        for poke in visible:
-            other = LatLng.from_degrees(poke.Latitude, poke.Longitude)
+    print('')
+    for cell in h.cells:
+        if cell.NearbyPokemon:
+            other = LatLng.from_point(Cell(CellId(cell.S2CellId)).get_center())
             diff = other - origin
             # print(diff)
             difflat = diff.lat().degrees
             difflng = diff.lng().degrees
             direction = (('N' if difflat >= 0 else 'S') if abs(difflat) > 1e-4 else '')  + (('E' if difflng >= 0 else 'W') if abs(difflng) > 1e-4 else '')
+            
+            print("Within one step of %s (%sm %s from you):" % (other, int(origin.get_distance(other).radians * 6366468.241830914), direction))
+            for poke in cell.NearbyPokemon:
+                print('    (%s) %s' % (poke.PokedexNumber, POKEMONS[poke.PokedexNumber - 1]['Name']))
 
-            pokemonFriendlyName = POKEMONS[poke.pokemon.PokemonId - 1]['Name']
+    print('')
+    distance_from_point = LatLng.from_degrees(distance_from_lat, distance_from_long)
+    for poke in visible:
+        other = LatLng.from_degrees(poke.Latitude, poke.Longitude)
+        diff = other - origin
+        # print(diff)
+        difflat = diff.lat().degrees
+        difflng = diff.lng().degrees
+        direction = (('N' if difflat >= 0 else 'S') if abs(difflat) > 1e-4 else '')  + (('E' if difflng >= 0 else 'W') if abs(difflng) > 1e-4 else '')
 
-            # DEBUG
-            print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
+        pokemonFriendlyName = POKEMONS[poke.pokemon.PokemonId - 1]['Name']
 
-            if pokemonFriendlyName.lower() in searchList:
-                tmpStr=""
-                tmpStr+=pokemonFriendlyName 
-                tmpStr+=" for " 
-                tmpStr+=str(int(poke.TimeTillHiddenMs / 1000)) 
-                tmpStr+=" s! Distance: " 
-                tmpStr+=str(int(origin.get_distance(other).radians * 6366468.241830914))
-                tmpStr+="m "
-                tmpStr+=direction 
-                tmpStr+="! Map: "
-                tmpStr+="http://maps.google.com/maps?q="
-                tmpStr+=str(poke.Latitude) 
-                tmpStr+="," 
-                tmpStr+=str(poke.Longitude)
-                outputFoundList.append(tmpStr)
+        # DEBUG
+        print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemonFriendlyName, poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
+
+        if pokemonFriendlyName.lower() in searchList:
+            tmpStr=""
+            tmpStr+=pokemonFriendlyName 
+            tmpStr+=" for " 
+            tmpStr+=str(int(poke.TimeTillHiddenMs / 1000)) 
+            tmpStr+=" s! Distance: " 
+            tmpStr+=str(int(distance_from_point.get_distance(other).radians * RADS_TO_M))
+            tmpStr+="m "
+            tmpStr+=direction 
+            tmpStr+="! Map: "
+            tmpStr+="http://maps.google.com/maps?q="
+            tmpStr+=str(poke.Latitude) 
+            tmpStr+="," 
+            tmpStr+=str(poke.Longitude)
+            outputFoundList.append(tmpStr)
 
 #       Break loop to one-step.
 #        if raw_input('The next cell is located at %s. Keep scanning? [Y/n]' % next) in {'n', 'N'}:
 #            break
- 
-        break
 
     return outputFoundList
 
