@@ -251,10 +251,10 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
         raise 
 
 def session_reset():
-    SESSION = requests.session()
-    SESSION.headers.update({'User-Agent': 'Niantic App'})
-    SESSION.verify = False
-    SESSION.connection.close()
+    global SESSION.connection.close()
+    global SESSION = requests.session()
+    global SESSION.headers.update({'User-Agent': 'Niantic App'})
+    global SESSION.verify = False
 
 def main():
     parser = argparse.ArgumentParser()
@@ -294,7 +294,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         try:
             access_token = login_ptc(username, password)
             ## FORCING BAD SESSION.
-            access_token = login_ptc(username, password)
+            #access_token = login_ptc(username, password)
         except Exception as e:
             print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely...resetting Session and retrying?"
             print e
