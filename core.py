@@ -254,6 +254,7 @@ def session_reset():
     SESSION = requests.session()
     SESSION.headers.update({'User-Agent': 'Niantic App'})
     SESSION.verify = False
+    SESSION.connection.close()
 
 def main():
     parser = argparse.ArgumentParser()
@@ -291,6 +292,8 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         login_time = time.time()
         
         try:
+            access_token = login_ptc(username, password)
+            ## FORCING BAD SESSION.
             access_token = login_ptc(username, password)
         except Exception as e:
             print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely...resetting Session and retrying?"
