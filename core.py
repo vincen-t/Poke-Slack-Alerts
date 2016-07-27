@@ -4,6 +4,7 @@ from slackclient import SlackClient
 SLACK_TOKEN = os.environ.get('SLACK_TOKEN', None)
 SCAN_BLOCKS = os.environ.get('SCAN_BLOCKS', None)
 TOTAL_WORKER_LIFETIME = os.environ.get('TOTAL_WORKER_LIFETIME', None)
+RPC_ID = os.environ.get('RPC_ID', None)
 
 slack_client = SlackClient(SLACK_TOKEN)
         
@@ -34,7 +35,7 @@ SESSION = requests.session()
 SESSION.headers.update({'User-Agent': 'Niantic App'})
 SESSION.verify = False
 
-DEBUG = os.environ.get('DEBUG_MODE', None)
+DEBUG = False
 POKEMONS = json.load(open('pokemon.json'))
 
 def send_message(channel_id, message):
@@ -86,7 +87,7 @@ def get_location(location_name):
 def api_req(api_endpoint, access_token, coords_lat, coords_long, coords_alt, *mehs, **kw):
     try:
         p_req = pokemon_pb2.RequestEnvelop()
-        p_req.rpc_id = 1469378659230941192
+        p_req.rpc_id = RPC_ID
 
         p_req.unknown1 = 2
 
@@ -245,14 +246,15 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
         heartbeat = pokemon_pb2.ResponseEnvelop.HeartbeatPayload()
         heartbeat.ParseFromString(payload)
         return heartbeat
-    except Exception:
+    except Exception as e:
         print ">>>>>>>>> WARN: MAIN: Suspected login timeout - heartbeat failed."
+        print e
         raise 
 
 def session_reset():
     global SESSION 
     del SESSION
-    SESSION = requests.session()
+    global SESSION = requests.session()
     SESSION.headers.update({'User-Agent': 'Niantic App'})
     SESSION.verify = False
 
@@ -268,7 +270,7 @@ def main():
     
     if args.debug:
         global DEBUG
-        DEBUG = False
+        DEBUG = True
         print('[!] DEBUG mode on')
 
     ## Replace with better test paths later. Yes, this is hard-coded; break out the torches and pitchforks.
@@ -367,7 +369,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 break 
                 pass
         
-        if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
+        if((time.time() - starttime > int(TOTAL_WORKER_LIFETIME)) or not scanRepeatedly):
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
@@ -450,7 +452,7 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
 #       Break loop to one-step.
 #        if raw_input('The next cell is located at %s. Keep scanning? [Y/n]' % next) in {'n', 'N'}:
 #            break
-  
+ 
         break
 
     return outputFoundList
