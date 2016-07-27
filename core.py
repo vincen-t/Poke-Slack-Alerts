@@ -250,6 +250,7 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
         raise 
 
 def session_reset():
+    global SESSION 
     SESSION.connection.close()
     SESSION = requests.session()
     SESSION.headers.update({'User-Agent': 'Niantic App'})
