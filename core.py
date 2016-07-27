@@ -206,40 +206,48 @@ def login_ptc(username, password):
     return access_token
 
 def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
-    m4 = pokemon_pb2.RequestEnvelop.Requests()
-    m = pokemon_pb2.RequestEnvelop.MessageSingleInt()
-    m.f1 = int(time.time() * 1000)
-    m4.message = m.SerializeToString()
-    m5 = pokemon_pb2.RequestEnvelop.Requests()
-    m = pokemon_pb2.RequestEnvelop.MessageSingleString()
-    m.bytes = "05daf51635c82611d1aac95c0b051d3ec088a930"
-    m5.message = m.SerializeToString()
+    try:
+        m4 = pokemon_pb2.RequestEnvelop.Requests()
+        m = pokemon_pb2.RequestEnvelop.MessageSingleInt()
+        m.f1 = int(time.time() * 1000)
+        m4.message = m.SerializeToString()
+        m5 = pokemon_pb2.RequestEnvelop.Requests()
+        m = pokemon_pb2.RequestEnvelop.MessageSingleString()
+        m.bytes = "05daf51635c82611d1aac95c0b051d3ec088a930"
+        m5.message = m.SerializeToString()
 
-    walk = sorted(getNeighbors(float_lat,float_long))
+        walk = sorted(getNeighbors(float_lat,float_long))
 
-    m1 = pokemon_pb2.RequestEnvelop.Requests()
-    m1.type = 106
-    m = pokemon_pb2.RequestEnvelop.MessageQuad()
-    m.f1 = ''.join(map(encode, walk))
-    m.f2 = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"
-    m.lat = f2i(float_lat) 
-    m.long = f2i(float_long) 
-    m1.message = m.SerializeToString()
-    response = get_profile(
-        access_token,
-        api_endpoint,
-        f2i(float_lat),
-        f2i(float_long),
-        response.unknown7,
-        m1,
-        pokemon_pb2.RequestEnvelop.Requests(),
-        m4,
-        pokemon_pb2.RequestEnvelop.Requests(),
-        m5)
-    payload = response.payload[0]
-    heartbeat = pokemon_pb2.ResponseEnvelop.HeartbeatPayload()
-    heartbeat.ParseFromString(payload)
-    return heartbeat
+        m1 = pokemon_pb2.RequestEnvelop.Requests()
+        m1.type = 106
+        m = pokemon_pb2.RequestEnvelop.MessageQuad()
+        m.f1 = ''.join(map(encode, walk))
+        m.f2 = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"
+        m.lat = f2i(float_lat) 
+        m.long = f2i(float_long) 
+        m1.message = m.SerializeToString()
+        response = get_profile(
+            access_token,
+            api_endpoint,
+            f2i(float_lat),
+            f2i(float_long),
+            response.unknown7,
+            m1,
+            pokemon_pb2.RequestEnvelop.Requests(),
+            m4,
+            pokemon_pb2.RequestEnvelop.Requests(),
+            m5)
+        ## Debug
+        if (not response):
+            print response
+        payload = response.payload[0]
+        heartbeat = pokemon_pb2.ResponseEnvelop.HeartbeatPayload()
+        heartbeat.ParseFromString(payload)
+        return heartbeat
+    except Exception:
+        return null
+        pass
+
 
 def main():
     parser = argparse.ArgumentParser()
