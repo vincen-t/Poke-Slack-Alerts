@@ -126,9 +126,10 @@ def api_req(api_endpoint, access_token, coords_lat, coords_long, coords_alt, *me
         print("Sleeping for 2 seconds to get around rate-limit.")
         time.sleep(2)
         return p_ret
-    except Exception, e:
+    except Exception as e:
         if DEBUG:
             print(e)
+        raise
         return None
 
 def get_profile(access_token, api, coords_lat, coords_long, useauth, *reqq):
@@ -170,6 +171,7 @@ def get_api_endpoint(access_token, coords_lat, coords_long, api = API_URL):
 
 
 def login_ptc(username, password):
+    
     print('[!] login for: {}'.format(username))
     head = {'User-Agent': 'niantic'}
     r = SESSION.get(LOGIN_URL, headers=head)
@@ -202,7 +204,7 @@ def login_ptc(username, password):
     r2 = SESSION.post(LOGIN_OAUTH, data=data1)
     access_token = re.sub('&expires.*', '', r2.content)
     access_token = re.sub('.*access_token=', '', access_token)
-
+        
     return access_token
 
 def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
@@ -248,6 +250,11 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
         print ">>>>>>>>> WARN: MAIN: Suspected login timeout - heartbeat failed."
         raise 
 
+def session_reset():
+    SESSION = requests.session()
+    SESSION.headers.update({'User-Agent': 'Niantic App'})
+    SESSION.verify = False
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--username", help="PTC Username", required=True)
@@ -265,6 +272,7 @@ def main():
 
     stalk_core(args.username, True, args.password, args.location, args.search.split(","))
     
+    
 def stalk_core(slack_user, scanRepeatedly, username, password, location, searchList):
 
     # Geocoder flakes if called too often.   
@@ -277,18 +285,27 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     orig_coords_long = f2i(float_long) # 0x4042bd7c00000000 # f2i(lat)
     # orig_coords_alt = f2i(lat_long_alt_list[2]) ## Ueed?
     
-    # BUG - clean this up later.
-    
     starttime = time.time()
     
     while(1):
         login_time = time.time()
+        
+        try:
+            access_token = login_ptc(username, password)
+        except Exception as e:
+            print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely...resetting Session and retrying?"
+            print e
+            session_reset() ## HACK BUG: Maybe best solution?
+            print ">>>>>>>>> WARN: MAIN: Session reset(?) - trying login again!"           
+            pass
+                    
         access_token = login_ptc(username, password)
+            
         if access_token is None:
-            print('[-] Wrong username/password')
+            print('[-] Wrong username/password or refresh was not needed...')
             return
         print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
-
+        
         api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
         if api_endpoint is None:
             print('[-] RPC server offline')
@@ -343,7 +360,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
                 sleep(30)
             except Exception as e:
-                print ">>>>>>>>> WARN: Exception caught! Error follows - restarting main loop/login..."
+                print ">>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login..."
                 print e
                 break 
                 pass
