@@ -364,7 +364,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 # Now need to move cells  set_location_coords(next.lat().degrees, next.lng().degrees, 0)
                 if (not scanRepeatedly):
                     print ">>>>>>>>> INFO: MAIN: Returning - single scan only."
-                    break
+                    return
                 print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
                 sleep(30)
             except Exception as e:
@@ -374,7 +374,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 pass
         
         if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
-            send_message(slack_user, "Poke-polling concluded! Poll was for: " + searchList) 
+            send_message(slack_user, "Poke-polling concluded! Searched for:" + searchList) 
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
