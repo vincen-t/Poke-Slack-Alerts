@@ -65,14 +65,14 @@ SESSION.verify = False
 DEBUG = False
 POKEMONS = json.load(open('pokemon.json'))
 
-def f2i(float):
-  return struct.unpack('<Q', struct.pack('<d', float))[0]
+def f2i(input_float):
+  return struct.unpack('<Q', struct.pack('<d', input_float))[0]
 
-def f2h(float):
-  return hex(struct.unpack('<Q', struct.pack('<d', float))[0])
+def f2h(input_float):
+  return hex(struct.unpack('<Q', struct.pack('<d', input_float))[0])
 
-def h2f(hex):
-  return struct.unpack('<d', struct.pack('<Q', int(hex,16)))[0]
+def h2f(input_hex):
+  return struct.unpack('<d', struct.pack('<Q', int(input_hex,16)))[0]
 
 def get_location(location_name):
     geolocator = GoogleV3()
@@ -245,9 +245,8 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
         heartbeat.ParseFromString(payload)
         return heartbeat
     except Exception:
-        return null
-        pass
-
+        print ">>>>>>>>> WARN: MAIN: Suspected login timeout - heartbeat failed."
+        raise 
 
 def main():
     parser = argparse.ArgumentParser()
@@ -282,64 +281,73 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     
     starttime = time.time()
     
-    access_token = login_ptc(username, password)
-    if access_token is None:
-        print('[-] Wrong username/password')
-        return
-    print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
-
-    api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
-    if api_endpoint is None:
-        print('[-] RPC server offline')
-        return
-    print('[+] Received API endpoint: {}'.format(api_endpoint))
-
-    response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
-    if response is not None:
-        print('[+] Login successful')
-        if DEBUG:
-            print(response)
-        payload = response.payload[0]
-        profile = pokemon_pb2.ResponseEnvelop.ProfilePayload()
-        profile.ParseFromString(payload)
-        print('[+] Username: {}'.format(profile.profile.username))
-
-        creation_time = datetime.fromtimestamp(int(profile.profile.creation_time)/1000)
-        print('[+] You are playing Pokemon Go since: {}'.format(
-            creation_time.strftime('%Y-%m-%d %H:%M:%S'),
-        ))
-
-        for curr in profile.profile.currency:
-            print('[+] {}: {}'.format(curr.type, curr.amount))
-    else:
-        print('[-] Ooops...')
-    
     while(1):
-        # Hunting four nearest cells.
-        tmp_float_lat = float_lat
-        tmp_float_long = float_long
-        for x in range(0, int(SCAN_BLOCKS)):
-            print ">>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be", time.time() - starttime
-            print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
-            print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
-            print ">>>>>>>>> INFO: MAIN: Block sweep count: ", x
-            listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long)
-            print listReturn
-            walk = getNeighbors(tmp_float_lat,tmp_float_long)
-            next = LatLng.from_point(Cell(CellId(walk[2])).get_center())     
-            tmp_float_lat =  next.lat().degrees
-            tmp_float_long = next.lng().degrees
+        login_time = time.time()
+        access_token = login_ptc(username, password)
+        if access_token is None:
+            print('[-] Wrong username/password')
+            return
+        print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
 
-            if (listReturn):
-                for val in listReturn:
-                    send_message(slack_user, str(val)) 
+        api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
+        if api_endpoint is None:
+            print('[-] RPC server offline')
+            return
+        print('[+] Received API endpoint: {}'.format(api_endpoint))
+
+        response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
+        if response is not None:
+            print('[+] Login successful')
+            if DEBUG:
+                print(response)
+            payload = response.payload[0]
+            profile = pokemon_pb2.ResponseEnvelop.ProfilePayload()
+            profile.ParseFromString(payload)
+            print('[+] Username: {}'.format(profile.profile.username))
+
+            creation_time = datetime.fromtimestamp(int(profile.profile.creation_time)/1000)
+            print('[+] You are playing Pokemon Go since: {}'.format(
+                creation_time.strftime('%Y-%m-%d %H:%M:%S'),
+            ))
+
+            for curr in profile.profile.currency:
+                print('[+] {}: {}'.format(curr.type, curr.amount))
+        else:
+            print('[-] Ooops...')
+    
+        while(1):
+            try:
+                # Hunting four nearest cells.
+                tmp_float_lat = float_lat
+                tmp_float_long = float_long
+                for x in range(0, int(SCAN_BLOCKS)):
+                    print ">>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be", time.time() - starttime
+                    print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
+                    print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
+                    print ">>>>>>>>> INFO: MAIN: Block sweep count: ", x
+                    listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long)
+                    print listReturn
+                    walk = getNeighbors(tmp_float_lat,tmp_float_long)
+                    next = LatLng.from_point(Cell(CellId(walk[2])).get_center())     
+                    tmp_float_lat =  next.lat().degrees
+                    tmp_float_long = next.lng().degrees
+
+                    if (listReturn):
+                        for val in listReturn:
+                            send_message(slack_user, str(val)) 
                     
-        # Now need to move cells   set_location_coords(next.lat().degrees, next.lng().degrees, 0)
-        if (not scanRepeatedly):
-            print ">>>>>>>>> INFO: MAIN: Breaking out - single scan only."
-            break
-        print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
-        sleep(30)
+                # Now need to move cells   set_location_coords(next.lat().degrees, next.lng().degrees, 0)
+                if (not scanRepeatedly):
+                    print ">>>>>>>>> INFO: MAIN: Breaking out - single scan only."
+                    break
+                print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
+                sleep(30)
+            except Exception as e:
+                print ">>>>>>>>> WARN: Exception caught! Error follows - restarting main loop/login..."
+                print e
+                break 
+                pass
+        
         if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
             break
     
