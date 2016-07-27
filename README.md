@@ -20,4 +20,7 @@ Usage (Running):
  * POKEMON_TEST_USER = os.environ.get('POKEMON_TEST_USER')  
  * POKEMON_TEST_PASSWORD = os.environ.get('POKEMON_TEST_PASSWORD')
  * SLACK_TOKEN = os.environ.get('SLACK_TOKEN', None)
+ * RPC_ID = int(os.environ.get('RPC_ID', None))
+ * DEBUG = os.environ.get('DEBUG_STATE', None)
+ * RADS_TO_M = 6366468.241830914
  * python recieve.py 
