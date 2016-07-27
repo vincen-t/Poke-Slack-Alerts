@@ -26,6 +26,17 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from s2sphere import *
 
+API_URL = 'https://pgorelease.nianticlabs.com/plfe/rpc'
+LOGIN_URL = 'https://sso.pokemon.com/sso/login?service=https%3A%2F%2Fsso.pokemon.com%2Fsso%2Foauth2.0%2FcallbackAuthorize'
+LOGIN_OAUTH = 'https://sso.pokemon.com/sso/oauth2.0/accessToken'
+
+SESSION = requests.session()
+SESSION.headers.update({'User-Agent': 'Niantic App'})
+SESSION.verify = False
+
+DEBUG = True
+POKEMONS = json.load(open('pokemon.json'))
+
 def send_message(channel_id, message):
     slack_client.api_call(
         "chat.postMessage",
@@ -52,18 +63,6 @@ def getNeighbors(float_lat,float_long):
         next = next.next()
         prev = prev.prev()
     return walk
-
-
-API_URL = 'https://pgorelease.nianticlabs.com/plfe/rpc'
-LOGIN_URL = 'https://sso.pokemon.com/sso/login?service=https%3A%2F%2Fsso.pokemon.com%2Fsso%2Foauth2.0%2FcallbackAuthorize'
-LOGIN_OAUTH = 'https://sso.pokemon.com/sso/oauth2.0/accessToken'
-
-SESSION = requests.session()
-SESSION.headers.update({'User-Agent': 'Niantic App'})
-SESSION.verify = False
-
-DEBUG = False
-POKEMONS = json.load(open('pokemon.json'))
 
 def f2i(input_float):
   return struct.unpack('<Q', struct.pack('<d', input_float))[0]
@@ -299,10 +298,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
             session_reset() ## HACK BUG: Maybe best solution?
             sleep(10)
             print ">>>>>>>>> WARN: MAIN: Session reset(?) - trying login again!" 
-            tmp_debug = DEBUG
-            DEBUG = True
             access_token = login_ptc(username, password)          
-            DEBUG = tmp_debug
             pass
             
         if access_token is None:
