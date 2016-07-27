@@ -4,7 +4,8 @@ from slackclient import SlackClient
 SLACK_TOKEN = os.environ.get('SLACK_TOKEN', None)
 SCAN_BLOCKS = os.environ.get('SCAN_BLOCKS', None)
 TOTAL_WORKER_LIFETIME = os.environ.get('TOTAL_WORKER_LIFETIME', None)
-RPC_ID = os.environ.get('RPC_ID', None)
+RPC_ID = int(os.environ.get('RPC_ID', None))
+DEBUG = bool(os.environ.get('DEBUG_STATE', None))
 
 slack_client = SlackClient(SLACK_TOKEN)
         
@@ -35,7 +36,6 @@ SESSION = requests.session()
 SESSION.headers.update({'User-Agent': 'Niantic App'})
 SESSION.verify = False 
 
-DEBUG = False
 POKEMONS = json.load(open('pokemon.json'))
 
 def send_message(channel_id, message):
