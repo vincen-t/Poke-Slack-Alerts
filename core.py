@@ -33,7 +33,7 @@ LOGIN_OAUTH = 'https://sso.pokemon.com/sso/oauth2.0/accessToken'
 
 SESSION = requests.session()
 SESSION.headers.update({'User-Agent': 'Niantic App'})
-SESSION.verify = False
+SESSION.verify = False 
 
 DEBUG = False
 POKEMONS = json.load(open('pokemon.json'))
