@@ -295,19 +295,22 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     while(1):
         login_time = time.time()
         
-        try:
-            access_token = login_ptc(username, password)
-        except Exception as e:
-            print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely...resetting Session and retrying?"
-            print e
-            session_reset() ## HACK BUG: Maybe best solution?
-            sleep(10)
-            print ">>>>>>>>> WARN: MAIN: Session reset(?) - trying login again!" 
-            access_token = login_ptc(username, password)          
-            pass
+        retry_10_times = 0
+        while(retry_10_times < 10)
+            try:
+                access_token = login_ptc(username, password)
+                break
+            except Exception as e:
+                print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely."
+                print e  
+                session_reset() ## HACK BUG: Maybe best solution?
+                print ">>>>>>>>> WARN: MAIN: Session reset!"     
+                print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number ", retry_10_times 
+                sleep(retry_10_times * 60)
+                pass   
             
         if access_token is None:
-            print('[-] Wrong username/password or refresh was not needed...')
+            print('[-] Wrong username/password or other login failure...')
             return
         print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
         
@@ -335,7 +338,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
             for curr in profile.profile.currency:
                 print('[+] {}: {}'.format(curr.type, curr.amount))
         else:
-            print('[-] Ooops...')
+            print('[-] Oops...')
     
         while(1):
             try:
@@ -347,7 +350,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                     print ">>>>>>>>> INFO: MAIN: Hunting in the area around", tmp_float_lat, tmp_float_long
                     print ">>>>>>>>> INFO: MAIN: Hunting for", searchList
                     print ">>>>>>>>> INFO: MAIN: Block sweep count: ", x
-                    listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long, float_lat, float_long )
+                    listReturn = huntNear(api_endpoint, access_token, response, searchList, tmp_float_lat, tmp_float_long, float_lat, float_long)
                     print listReturn
                     walk = getNeighbors(tmp_float_lat,tmp_float_long)
                     next = LatLng.from_point(Cell(CellId(walk[2])).get_center())     
@@ -361,13 +364,13 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 # Now need to move cells  set_location_coords(next.lat().degrees, next.lng().degrees, 0)
                 if (not scanRepeatedly):
                     print ">>>>>>>>> INFO: MAIN: Returning - single scan only."
-                    return
+                    break
                 print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
                 sleep(30)
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login..."
                 print e
-                break 
+                break
                 pass
         
         if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
