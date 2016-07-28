@@ -332,7 +332,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                         print('[+] {}: {}'.format(curr.type, curr.amount))
                 else:
                     print('[-] Oops...')
-            
+              
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely."
                 print e  
