@@ -313,6 +313,26 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 # If we get to here with no errors or total failure, consider it success!
                 break
         
+                response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
+                if response is not None:
+                    print('[+] Login successful')
+                    if DEBUG:
+                        print(response)
+                    payload = response.payload[0]
+                    profile = pokemon_pb2.ResponseEnvelop.ProfilePayload()
+                    profile.ParseFromString(payload)
+                    print('[+] Username: {}'.format(profile.profile.username))
+
+                    creation_time = datetime.fromtimestamp(int(profile.profile.creation_time)/1000)
+                    print('[+] You are playing Pokemon Go since: {}'.format(
+                        creation_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    ))
+
+                    for curr in profile.profile.currency:
+                        print('[+] {}: {}'.format(curr.type, curr.amount))
+                else:
+                    print('[-] Oops...')
+            
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely."
                 print e  
@@ -321,26 +341,6 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number ", retry_10_times 
                 sleep(retry_10_times * 60)
                 pass
-
-        response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
-        if response is not None:
-            print('[+] Login successful')
-            if DEBUG:
-                print(response)
-            payload = response.payload[0]
-            profile = pokemon_pb2.ResponseEnvelop.ProfilePayload()
-            profile.ParseFromString(payload)
-            print('[+] Username: {}'.format(profile.profile.username))
-
-            creation_time = datetime.fromtimestamp(int(profile.profile.creation_time)/1000)
-            print('[+] You are playing Pokemon Go since: {}'.format(
-                creation_time.strftime('%Y-%m-%d %H:%M:%S'),
-            ))
-
-            for curr in profile.profile.currency:
-                print('[+] {}: {}'.format(curr.type, curr.amount))
-        else:
-            print('[-] Oops...')
     
         while(1):
             try:

@@ -149,3 +149,54 @@
 2016-07-28T16:49:22.253562+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 844, in MergeFromString
 2016-07-28T16:49:22.253837+00:00 app[web.1]:     raise message_mod.DecodeError('Unexpected end-group tag.')
 2016-07-28T16:49:22.253840+00:00 app[web.1]: DecodeError: Unexpected end-group tag.
+2016-07-28T16:51:16.841206+00:00 heroku[slug-compiler]: Slug compilation started
+2016-07-28T16:51:16.841215+00:00 heroku[slug-compiler]: Slug compilation finished
+2016-07-28T16:51:16.963103+00:00 heroku[web.1]: Restarting
+2016-07-28T16:51:16.963668+00:00 heroku[web.1]: State changed from up to starting
+2016-07-28T16:51:19.884738+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2016-07-28T16:51:20.597479+00:00 app[web.1]: [2016-07-28 16:51:20 +0000] [9] [INFO] Worker exiting (pid: 9)
+2016-07-28T16:51:20.597878+00:00 app[web.1]: [2016-07-28 16:51:20 +0000] [3] [INFO] Handling signal: term
+2016-07-28T16:51:20.602745+00:00 app[web.1]: [2016-07-28 16:51:20 +0000] [10] [INFO] Worker exiting (pid: 10)
+2016-07-28T16:51:20.634924+00:00 app[web.1]: [2016-07-28 16:51:20 +0000] [3] [INFO] Shutting down: Master
+2016-07-28T16:51:20.786316+00:00 heroku[web.1]: Process exited with status 0
+2016-07-28T16:51:22.151925+00:00 heroku[web.1]: Starting process with command `gunicorn recieve:app --log-file -`
+2016-07-28T16:51:16.662233+00:00 heroku[api]: Deploy 37b3cf2 by vincent.bannister@gmail.com
+2016-07-28T16:51:16.662233+00:00 heroku[api]: Release v52 created by vincent.bannister@gmail.com
+2016-07-28T16:51:26.168682+00:00 app[web.1]: [2016-07-28 16:51:26 +0000] [3] [INFO] Starting gunicorn 19.6.0
+2016-07-28T16:51:26.169359+00:00 app[web.1]: [2016-07-28 16:51:26 +0000] [3] [INFO] Listening at: http://0.0.0.0:53806 (3)
+2016-07-28T16:51:26.169503+00:00 app[web.1]: [2016-07-28 16:51:26 +0000] [3] [INFO] Using worker: sync
+2016-07-28T16:51:26.175250+00:00 app[web.1]: [2016-07-28 16:51:26 +0000] [9] [INFO] Booting worker with pid: 9
+2016-07-28T16:51:26.221683+00:00 app[web.1]: [2016-07-28 16:51:26 +0000] [10] [INFO] Booting worker with pid: 10
+2016-07-28T16:51:26.356367+00:00 heroku[web.1]: State changed from starting to up
+2016-07-28T16:51:44.562777+00:00 app[web.1]: Invoking Stalker...
+2016-07-28T16:51:44.566638+00:00 app[web.1]: ['273 Salter Path Rd,  Pine Knoll Shores, North Carolina', 'Vulpix,Ninetails,Pikachu,Ponyta,Dratini,Eevee,Squirtle,Dragonair,Geodude,Snorlax,Bulbasaur,Dragonite,Poliwag,Charizard,Charmander,Charmeleon,Ghastly']
+2016-07-28T16:51:44.566675+00:00 app[web.1]: 2
+2016-07-28T16:51:44.817705+00:00 app[web.1]: Kicked background action to poke-poll!
+2016-07-28T16:51:44.822962+00:00 app[web.1]: Starting....
+2016-07-28T16:51:44.894612+00:00 app[web.1]: [!] Your given location: 273 Salter Path Rd, Pine Knoll Shores, NC 28512, USA
+2016-07-28T16:51:44.894673+00:00 app[web.1]: [!] lat/long/alt: 34.694636 -76.817719 0.0
+2016-07-28T16:51:44.894786+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T16:51:45.331555+00:00 app[web.1]: [+] RPC Session Token: TGT-11891120-qefUWjcY6MZN ...
+2016-07-28T16:51:45.572584+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:51:47.573946+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/152/rpc
+2016-07-28T16:51:44.829318+00:00 heroku[router]: at=info method=POST path="/poke-scan" host=glacial-sea-95399.herokuapp.com request_id=daf701b8-9c5c-49aa-8a63-95df745d97f6 fwd="54.174.33.17" dyno=web.1 connect=1ms service=265ms status=200 bytes=159
+2016-07-28T16:52:17.603694+00:00 app[web.1]: Unexpected end-group tag.
+2016-07-28T16:52:17.603897+00:00 app[web.1]: Process Process-1:
+2016-07-28T16:52:17.603936+00:00 app[web.1]: Traceback (most recent call last):
+2016-07-28T16:52:17.603978+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+2016-07-28T16:52:17.604184+00:00 app[web.1]:     self.run()
+2016-07-28T16:52:17.604203+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 114, in run
+2016-07-28T16:52:17.604245+00:00 app[web.1]:     self._target(*self._args, **self._kwargs)
+2016-07-28T16:52:17.604248+00:00 app[web.1]:   File "/app/recieve.py", line 102, in longtask
+2016-07-28T16:52:17.604367+00:00 app[web.1]:     core.stalk_core("@" + username, repeatScan, POKEMON_TEST_USER, POKEMON_TEST_PASSWORD, location, pokeList)
+2016-07-28T16:52:17.604370+00:00 app[web.1]:   File "/app/core.py", line 325, in stalk_core
+2016-07-28T16:52:17.604600+00:00 app[web.1]:     response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
+2016-07-28T16:52:17.604622+00:00 app[web.1]:   File "/app/core.py", line 163, in get_profile
+2016-07-28T16:52:17.604654+00:00 app[web.1]:     return api_req(api, access_token, coords_lat, coords_long, 0, req, useauth = useauth)
+2016-07-28T16:52:17.604673+00:00 app[web.1]:   File "/app/core.py", line 118, in api_req
+2016-07-28T16:52:17.604700+00:00 app[web.1]:     p_ret.ParseFromString(r.content)
+2016-07-28T16:52:17.604722+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/message.py", line 186, in ParseFromString
+2016-07-28T16:52:17.604890+00:00 app[web.1]:     self.MergeFromString(serialized)
+2016-07-28T16:52:17.604894+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 844, in MergeFromString
+2016-07-28T16:52:17.605329+00:00 app[web.1]:     raise message_mod.DecodeError('Unexpected end-group tag.')
+2016-07-28T16:52:17.605368+00:00 app[web.1]: DecodeError: Unexpected end-group tag.
