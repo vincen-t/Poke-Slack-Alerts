@@ -294,8 +294,8 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     while(1):
         login_time = time.time()
         
-        retry_10_times = 0
-        while(retry_10_times < 10):
+        retry_10_times = 1
+        while(retry_10_times < 11):
             try:
                 access_token = login_ptc(username, password)
               
@@ -309,9 +309,6 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                     print('[-] RPC server offline')
                     return
                 print('[+] Received API endpoint: {}'.format(api_endpoint))
-        
-                # If we get to here with no errors or total failure, consider it success!
-                break
         
                 response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
                 if response is not None:
@@ -332,6 +329,9 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                         print('[+] {}: {}'.format(curr.type, curr.amount))
                 else:
                     print('[-] Oops...')
+                
+                # If we get to here with no errors or total failure, consider it success!
+                break
               
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely."
@@ -340,6 +340,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 print ">>>>>>>>> WARN: MAIN: Session reset!"     
                 print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number ", retry_10_times 
                 sleep(retry_10_times * 60)
+                retry_10_times = retry_10_times + 1
                 pass
     
         while(1):

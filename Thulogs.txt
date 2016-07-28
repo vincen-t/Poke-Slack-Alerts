@@ -304,3 +304,194 @@
 2016-07-28T17:01:54.898184+00:00 app[web.1]: [!] login for: ilovepokego
 2016-07-28T17:01:55.323505+00:00 app[web.1]: [+] RPC Session Token: TGT-11895778-0sCUVyTImbYo ...
 2016-07-28T17:01:55.551422+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:01:57.553184+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:01:57.553306+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 75.1202020645
+2016-07-28T17:01:57.553350+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:01:57.570540+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:01:57.570591+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:01:57.571205+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:01:57.571234+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:01:57.571305+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:01:57.724275+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:01:57.724278+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:01:57.724626+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:01:57.724628+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:01:57.724634+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:01:58.118377+00:00 app[web.1]: [+] RPC Session Token: TGT-861431-FwCUy7eKdH5aod ...
+2016-07-28T17:01:58.341347+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:00.343257+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:00.343438+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 77.9103069305
+2016-07-28T17:02:00.343443+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:00.352337+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:00.352342+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:00.352802+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:00.352806+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:00.352864+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:00.515369+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:00.515374+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:00.515761+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:00.515981+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:00.516004+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:01.002014+00:00 app[web.1]: [+] RPC Session Token: TGT-1858787-t1OS0LEXaII9X ...
+2016-07-28T17:02:01.393890+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:03.396198+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:03.397662+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 80.9645540714
+2016-07-28T17:02:03.397703+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:03.405376+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:03.405430+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:03.406046+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:03.406049+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:03.406109+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:03.544821+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:03.544829+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:03.545053+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:03.545058+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:03.545089+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:03.961668+00:00 app[web.1]: [+] RPC Session Token: TGT-11895137-S3VPPKiEAR9u ...
+2016-07-28T17:02:04.562963+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:06.564771+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:06.565110+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 84.1319670677
+2016-07-28T17:02:06.565130+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:06.568108+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:06.568141+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:06.569888+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:06.569890+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:06.569921+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:06.715938+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:06.715941+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:06.716155+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:06.716159+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:06.716190+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:07.100827+00:00 app[web.1]: [+] RPC Session Token: TGT-11896063-D0ap5MueoSdd ...
+2016-07-28T17:02:36.946647+00:00 heroku[slug-compiler]: Slug compilation started
+2016-07-28T17:02:36.946653+00:00 heroku[slug-compiler]: Slug compilation finished
+2016-07-28T17:02:37.166814+00:00 app[web.1]: Unexpected end-group tag.
+2016-07-28T17:02:37.167366+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:37.167396+00:00 app[web.1]: Unexpected end-group tag.
+2016-07-28T17:02:37.167802+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:37.168403+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:37.168446+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:37.540620+00:00 app[web.1]: [+] RPC Session Token: TGT-11897183-nLtwVJpJR0r2 ...
+2016-07-28T17:02:36.952954+00:00 heroku[web.1]: Restarting
+2016-07-28T17:02:36.953585+00:00 heroku[web.1]: State changed from up to starting
+2016-07-28T17:02:37.792884+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:39.795685+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:39.795821+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 117.362704992
+2016-07-28T17:02:39.795843+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:39.801497+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:39.801500+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:39.805298+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:39.805324+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:39.805390+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:39.949332+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:39.949359+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:39.949671+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:39.949715+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:39.949750+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:40.317115+00:00 app[web.1]: [+] RPC Session Token: TGT-11893959-NT3iR20SpeS0 ...
+2016-07-28T17:02:41.088735+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2016-07-28T17:02:41.770603+00:00 app[web.1]: [2016-07-28 17:02:41 +0000] [3] [INFO] Handling signal: term
+2016-07-28T17:02:41.770875+00:00 app[web.1]: [2016-07-28 17:02:41 +0000] [9] [INFO] Worker exiting (pid: 9)
+2016-07-28T17:02:41.771774+00:00 app[web.1]: [2016-07-28 17:02:41 +0000] [10] [INFO] Worker exiting (pid: 10)
+2016-07-28T17:02:41.943992+00:00 heroku[web.1]: Starting process with command `gunicorn recieve:app --log-file -`
+2016-07-28T17:02:43.359607+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:45.022027+00:00 app[web.1]: [2016-07-28 17:02:45 +0000] [3] [INFO] Starting gunicorn 19.6.0
+2016-07-28T17:02:45.022770+00:00 app[web.1]: [2016-07-28 17:02:45 +0000] [3] [INFO] Listening at: http://0.0.0.0:42253 (3)
+2016-07-28T17:02:45.022880+00:00 app[web.1]: [2016-07-28 17:02:45 +0000] [3] [INFO] Using worker: sync
+2016-07-28T17:02:45.030644+00:00 app[web.1]: [2016-07-28 17:02:45 +0000] [9] [INFO] Booting worker with pid: 9
+2016-07-28T17:02:45.123208+00:00 app[web.1]: [2016-07-28 17:02:45 +0000] [10] [INFO] Booting worker with pid: 10
+2016-07-28T17:02:45.360615+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:45.360797+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 122.927671909
+2016-07-28T17:02:45.360816+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:45.363077+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:45.363079+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:45.363662+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:45.363688+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:45.363745+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:45.507590+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:45.507595+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:45.507802+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:45.507824+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:45.507840+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:45.889060+00:00 app[web.1]: [+] RPC Session Token: TGT-861522-ZNg2lgmOI4qiyW ...
+2016-07-28T17:02:46.123176+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:45.699437+00:00 heroku[web.1]: State changed from starting to up
+2016-07-28T17:02:36.723385+00:00 heroku[api]: Deploy 7673042 by vincent.bannister@gmail.com
+2016-07-28T17:02:36.723455+00:00 heroku[api]: Release v54 created by vincent.bannister@gmail.com
+2016-07-28T17:02:48.124500+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:48.124618+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 125.691513062
+2016-07-28T17:02:48.124621+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:48.126349+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:48.126353+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:48.126788+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:48.126790+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:48.126829+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:48.268717+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:48.268748+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:48.269178+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:48.269182+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:48.269230+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:48.841316+00:00 app[web.1]: [+] RPC Session Token: TGT-11892469-c2ZhtDfYXPX1 ...
+2016-07-28T17:02:49.093536+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:51.095463+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:51.095695+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 128.662583113
+2016-07-28T17:02:51.095712+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:51.099975+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:51.099990+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:51.100630+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:51.100631+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:51.100666+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:51.244770+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:51.244773+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:51.245001+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:51.245005+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:51.245032+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:51.623956+00:00 app[web.1]: [+] RPC Session Token: TGT-11895949-gjfKlSRmaw4x ...
+2016-07-28T17:02:51.849893+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:53.851206+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:53.851378+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 131.418241978
+2016-07-28T17:02:53.851414+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:53.853608+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:53.853635+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:53.854089+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:53.854115+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:53.854191+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:54.025681+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:54.025684+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:54.025909+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:54.025913+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:54.025939+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:54.411538+00:00 app[web.1]: [+] RPC Session Token: TGT-11898529-o7JCnVq3IpmT ...
+2016-07-28T17:02:54.671295+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:56.673108+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:56.673301+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 134.240168095
+2016-07-28T17:02:56.673305+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:56.676339+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:56.676342+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:56.676343+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:56.676344+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:56.676345+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:56.842058+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:56.842061+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:56.842366+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:56.842370+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:56.842394+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:57.214118+00:00 app[web.1]: [+] RPC Session Token: TGT-862100-OJOG6IJFDjk1fy ...
+2016-07-28T17:02:57.568580+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T17:02:59.569724+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/405/rpc
+2016-07-28T17:02:59.569916+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 137.136765957
+2016-07-28T17:02:59.569966+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T17:02:59.571846+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T17:02:59.571849+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T17:02:59.572276+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login...
+2016-07-28T17:02:59.572278+00:00 app[web.1]: local variable 'response' referenced before assignment
+2016-07-28T17:02:59.572328+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:02:59.702207+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely.
+2016-07-28T17:02:59.702210+00:00 app[web.1]: No JSON object could be decoded
+2016-07-28T17:02:59.702480+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Session reset!
+2016-07-28T17:02:59.702498+00:00 app[web.1]: >>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number  0
+2016-07-28T17:02:59.702521+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T17:03:00.092455+00:00 app[web.1]: [+] RPC Session Token: TGT-862285-lDHaRhXx31l42L ...
+2016-07-28T17:03:10.993014+00:00 heroku[web.1]: Error R12 (Exit timeout) -> At least one process failed to exit within 30 seconds of SIGTERM
+2016-07-28T17:03:10.993014+00:00 heroku[web.1]: Stopping remaining processes with SIGKILL
+2016-07-28T17:03:11.665417+00:00 heroku[web.1]: Process exited with status 137
