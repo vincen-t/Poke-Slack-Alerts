@@ -114,12 +114,17 @@ def api_req(api_endpoint, access_token, coords_lat, coords_long, coords_alt, *me
 
         r = SESSION.post(api_endpoint, data=protobuf, verify=False)
 
+        if DEBUG:
+            print("REQUEST:")
+            print(p_req)
+            print("RAW RESPONSE:")
+            print(r.content)
+            print("\n\n")
+
         p_ret = pokemon_pb2.ResponseEnvelop()
         p_ret.ParseFromString(r.content)
 
         if DEBUG:
-            print("REQUEST:")
-            print(p_req)
             print("Response:")
             print(p_ret)
             print("\n\n")
@@ -294,8 +299,8 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     while(1):
         login_time = time.time()
         
-        retry_10_times = 1
-        while(retry_10_times < 11):
+        retry_10_times = 0
+        while(retry_10_times < 10):
             try:
                 access_token = login_ptc(username, password)
               
@@ -369,6 +374,9 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                     print ">>>>>>>>> INFO: MAIN: Returning - single scan only."
                     return
                     
+                print ">>>>>>>>> INFO: MAIN: Sleeping 15 before looping again to avoid overwhelming Google..."    
+                sleep(10)    
+                
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login..."
                 print e
