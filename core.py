@@ -426,10 +426,11 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
                 print('    (%s) %s' % (poke.PokedexNumber, POKEMONS[poke.PokedexNumber - 1]['Name']))
 
     print('')
+    ## FIX DIRECTION - is OTHER used?
     distance_from_point = LatLng.from_degrees(distance_from_lat, distance_from_long)
     for poke in visible:
         other = LatLng.from_degrees(poke.Latitude, poke.Longitude)
-        diff = other - origin
+        diff = other - distance_from_point
         # print(diff)
         difflat = diff.lat().degrees
         difflng = diff.lng().degrees
