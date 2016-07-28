@@ -128,8 +128,7 @@ def api_req(api_endpoint, access_token, coords_lat, coords_long, coords_alt, *me
         time.sleep(2)
         return p_ret
     except Exception as e:
-        if DEBUG:
-            print(e)
+        print(e)
         raise
         return None
 
@@ -299,7 +298,21 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
         while(retry_10_times < 10):
             try:
                 access_token = login_ptc(username, password)
+              
+                if access_token is None:
+                    print('[-] Wrong username/password or other unrecoverable login failure...')
+                    return
+                print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
+        
+                api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
+                if api_endpoint is None:
+                    print('[-] RPC server offline')
+                    return
+                print('[+] Received API endpoint: {}'.format(api_endpoint))
+        
+                # If we get to here with no errors or total failure, consider it success!
                 break
+        
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Login exception caught! Error follows - JSON decode issue likely."
                 print e  
@@ -307,18 +320,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 print ">>>>>>>>> WARN: MAIN: Session reset!"     
                 print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number ", retry_10_times 
                 sleep(retry_10_times * 60)
-                pass   
-            
-        if access_token is None:
-            print('[-] Wrong username/password or other login failure...')
-            return
-        print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
-        
-        api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
-        if api_endpoint is None:
-            print('[-] RPC server offline')
-            return
-        print('[+] Received API endpoint: {}'.format(api_endpoint))
+                pass
 
         response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
         if response is not None:
@@ -365,8 +367,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 if (not scanRepeatedly):
                     print ">>>>>>>>> INFO: MAIN: Returning - single scan only."
                     return
-                print ">>>>>>>>> INFO: MAIN: Sleeping for 30 before beginning search again."
-                sleep(30)
+                    
             except Exception as e:
                 print ">>>>>>>>> WARN: MAIN: Exception caught! Error follows - restarting main loop/login..."
                 print e
@@ -426,7 +427,6 @@ def huntNear(api_endpoint, access_token, response, searchList, float_lat, float_
                 print('    (%s) %s' % (poke.PokedexNumber, POKEMONS[poke.PokedexNumber - 1]['Name']))
 
     print('')
-    ## FIX DIRECTION - is OTHER used?
     distance_from_point = LatLng.from_degrees(distance_from_lat, distance_from_long)
     for poke in visible:
         other = LatLng.from_degrees(poke.Latitude, poke.Longitude)

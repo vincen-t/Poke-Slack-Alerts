@@ -1,0 +1,151 @@
+2016-07-28T15:27:35.198725+00:00 app[web.1]: Process Process-1:
+2016-07-28T15:27:35.198745+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+2016-07-28T15:27:35.198744+00:00 app[web.1]: Traceback (most recent call last):
+2016-07-28T15:27:35.199733+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 114, in run
+2016-07-28T15:27:35.199732+00:00 app[web.1]:     self.run()
+2016-07-28T15:27:35.208469+00:00 app[web.1]:     core.stalk_core("@" + username, repeatScan, POKEMON_TEST_USER, POKEMON_TEST_PASSWORD, location, pokeList)
+2016-07-28T15:27:35.208489+00:00 app[web.1]:   File "/app/core.py", line 317, in stalk_core
+2016-07-28T15:27:35.199737+00:00 app[web.1]:     self._target(*self._args, **self._kwargs)
+2016-07-28T15:27:35.199762+00:00 app[web.1]:   File "/app/recieve.py", line 102, in longtask
+2016-07-28T15:27:35.211499+00:00 app[web.1]:     p_ret = get_profile(access_token, api, coords_lat, coords_long, None)
+2016-07-28T15:27:35.211452+00:00 app[web.1]:   File "/app/core.py", line 167, in get_api_endpoint
+2016-07-28T15:27:35.211446+00:00 app[web.1]:     api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
+2016-07-28T15:27:35.211502+00:00 app[web.1]:   File "/app/core.py", line 164, in get_profile
+2016-07-28T15:27:35.211537+00:00 app[web.1]:   File "/app/core.py", line 118, in api_req
+2016-07-28T15:27:35.211534+00:00 app[web.1]:     return api_req(api, access_token, coords_lat, coords_long, 0, req, useauth = useauth)
+2016-07-28T15:27:35.211593+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/message.py", line 186, in ParseFromString
+2016-07-28T15:27:35.211569+00:00 app[web.1]:     p_ret.ParseFromString(r.content)
+2016-07-28T15:27:35.225743+00:00 app[web.1]:     self.MergeFromString(serialized)
+2016-07-28T15:27:35.230726+00:00 app[web.1]: DecodeError: Unexpected end-group tag.
+2016-07-28T15:27:35.225745+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 844, in MergeFromString
+2016-07-28T15:27:35.230668+00:00 app[web.1]:     raise message_mod.DecodeError('Unexpected end-group tag.')
+2016-07-28T16:25:42.395410+00:00 app[web.1]: ['273 Salter Path Rd,  Pine Knoll Shores, North Carolina']
+2016-07-28T16:25:42.394866+00:00 app[web.1]: Invoking scan once...
+2016-07-28T16:25:42.598620+00:00 app[web.1]: Kicked background action to poke-poll!
+2016-07-28T16:25:42.395428+00:00 app[web.1]: 1
+2016-07-28T16:25:42.628520+00:00 app[web.1]: Starting....
+2016-07-28T16:25:42.857433+00:00 app[web.1]: [!] lat/long/alt: 34.694636 -76.817719 0.0
+2016-07-28T16:25:42.857748+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T16:25:42.857356+00:00 app[web.1]: [!] Your given location: 273 Salter Path Rd, Pine Knoll Shores, NC 28512, USA
+2016-07-28T16:25:43.378986+00:00 app[web.1]: [+] RPC Session Token: TGT-1822646-e1fTcFXXseR0i ...
+2016-07-28T16:25:45.660819+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/223/rpc
+2016-07-28T16:25:45.909949+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:47.915112+00:00 app[web.1]: [+] Username: danzingtest
+2016-07-28T16:25:48.002785+00:00 app[web.1]: [+] You are playing Pokemon Go since: 2016-07-23 09:13:49
+2016-07-28T16:25:48.002910+00:00 app[web.1]: [+] POKECOIN: 0
+2016-07-28T16:25:48.002933+00:00 app[web.1]: [+] STARDUST: 33400
+2016-07-28T16:25:48.005654+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 5.14810204506
+2016-07-28T16:25:48.005690+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.694636 -76.817719
+2016-07-28T16:25:48.010893+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T16:25:48.010898+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  0
+2016-07-28T16:25:48.142814+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:47.913299+00:00 app[web.1]: [+] Login successful
+2016-07-28T16:25:50.224198+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:52.513905+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:42.588918+00:00 heroku[router]: at=info method=POST path="/poke-ping" host=glacial-sea-95399.herokuapp.com request_id=58ba53e2-2b2c-44d5-b816-c315f1852dcb fwd="52.91.184.228" dyno=web.1 connect=1ms service=211ms status=200 bytes=159
+2016-07-28T16:25:54.607081+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:56.704705+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:58.710068+00:00 app[web.1]: Within one step of LatLng: 34.6945750831,-76.8187557154 (94m W from you):
+2016-07-28T16:25:58.709824+00:00 app[web.1]: Within one step of LatLng: 34.6969750529,-76.8158717987 (309m NE from you):
+2016-07-28T16:25:58.709867+00:00 app[web.1]:     (27) Sandshrew
+2016-07-28T16:25:58.710139+00:00 app[web.1]:     (72) Tentacool
+2016-07-28T16:25:58.710315+00:00 app[web.1]: (54) Psyduck is visible at (34.6939650074, -76.8174489489) for 373 seconds (78m SE from you)
+2016-07-28T16:25:58.707717+00:00 app[web.1]: 
+2016-07-28T16:25:58.710220+00:00 app[web.1]: 
+2016-07-28T16:25:58.710449+00:00 app[web.1]: (72) Tentacool is visible at (34.6940045223, -76.8178094376) for 644 seconds (70m S from you)
+2016-07-28T16:25:58.710108+00:00 app[web.1]:     (54) Psyduck
+2016-07-28T16:25:58.710617+00:00 app[web.1]: [u'Psyduck for 373 s! Distance: 78m SE! Map: http://maps.google.com/maps?q=34.6939650074,-76.8174489489', u'Tentacool for 644 s! Distance: 70m S! Map: http://maps.google.com/maps?q=34.6940045223,-76.8178094376']
+2016-07-28T16:25:58.969251+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 16.1117231846
+2016-07-28T16:25:58.969263+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.6948911351 -76.8216395652
+2016-07-28T16:25:59.156758+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:25:58.971736+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T16:25:58.971738+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  1
+2016-07-28T16:26:01.247482+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:03.323057+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:05.398357+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:07.474316+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:09.481457+00:00 app[web.1]: 
+2016-07-28T16:26:09.483594+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 26.6260521412
+2016-07-28T16:26:09.481597+00:00 app[web.1]: 
+2016-07-28T16:26:09.490467+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  2
+2016-07-28T16:26:09.483614+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.6952071094 -76.824523348
+2016-07-28T16:26:09.490464+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T16:26:09.575140+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:09.481842+00:00 app[web.1]: []
+2016-07-28T16:26:11.658513+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:13.736976+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:15.815688+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:17.894499+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:19.899520+00:00 app[web.1]: Within one step of LatLng: 34.6952071094,-76.824523348 (0m  from you):
+2016-07-28T16:26:19.899946+00:00 app[web.1]: 
+2016-07-28T16:26:19.899119+00:00 app[web.1]: 
+2016-07-28T16:26:19.900067+00:00 app[web.1]: (129) Magikarp is visible at (34.6948241826, -76.8252893416) for 355 seconds (81m SW from you)
+2016-07-28T16:26:19.900354+00:00 app[web.1]: [u'Magikarp for 355 s! Distance: 691m SW! Map: http://maps.google.com/maps?q=34.6948241826,-76.8252893416']
+2016-07-28T16:26:20.062647+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Beginning hunt. Time elapsed is believed to be 37.2051091194
+2016-07-28T16:26:20.064309+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Block sweep count:  3
+2016-07-28T16:26:19.899837+00:00 app[web.1]:     (129) Magikarp
+2016-07-28T16:26:20.062652+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting in the area around 34.6979232425 -76.824523348
+2016-07-28T16:26:20.064306+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Hunting for ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree', 'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata', 'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu', 'sandshrew', 'sandslash', 'nidoranf', 'nidorina', 'nidoqueen', 'nidoranm', 'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales', 'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume', 'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth', 'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine', 'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop', 'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebell', 'tentacool', 'tentacruel', 'geodude', 'graveler', 'golum', 'ponyta', 'rapidash', 'slowpoke', 'slowbro', 'magnemite', 'magneton', "farfetch'd", 'doduo', 'dodrio', 'seel', 'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar', 'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute', 'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing', 'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea', 'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'mrmime', 'scyther', 'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados', 'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno', 'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew']
+2016-07-28T16:26:20.253765+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:22.364166+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:24.471555+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:26.560515+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:28.643793+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:26:30.646840+00:00 app[web.1]: 
+2016-07-28T16:26:30.647327+00:00 app[web.1]: 
+2016-07-28T16:26:30.647732+00:00 app[web.1]: [u'Magikarp for 870 s! Distance: 719m NE! Map: http://maps.google.com/maps?q=34.6981956308,-76.8242980549']
+2016-07-28T16:26:30.647440+00:00 app[web.1]: (129) Magikarp is visible at (34.6981956308, -76.8242980549) for 870 seconds (36m NE from you)
+2016-07-28T16:26:30.817839+00:00 app[web.1]: >>>>>>>>> INFO: MAIN: Returning - single scan only.
+2016-07-28T16:26:30.647211+00:00 app[web.1]: Within one step of LatLng: 34.6979232425,-76.824523348 (0m  from you):
+2016-07-28T16:26:30.817845+00:00 app[web.1]: ...Finishing!
+2016-07-28T16:26:30.647215+00:00 app[web.1]:     (129) Magikarp
+2016-07-28T16:43:56.376872+00:00 heroku[slug-compiler]: Slug compilation started
+2016-07-28T16:43:56.376877+00:00 heroku[slug-compiler]: Slug compilation finished
+2016-07-28T16:43:56.549112+00:00 heroku[web.1]: Restarting
+2016-07-28T16:43:56.549785+00:00 heroku[web.1]: State changed from up to starting
+2016-07-28T16:44:00.407666+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2016-07-28T16:44:00.960480+00:00 heroku[web.1]: Starting process with command `gunicorn recieve:app --log-file -`
+2016-07-28T16:44:01.485239+00:00 app[web.1]: [2016-07-28 16:44:01 +0000] [9] [INFO] Worker exiting (pid: 9)
+2016-07-28T16:44:01.489633+00:00 app[web.1]: [2016-07-28 16:44:01 +0000] [10] [INFO] Worker exiting (pid: 10)
+2016-07-28T16:44:01.501210+00:00 app[web.1]: [2016-07-28 16:44:01 +0000] [3] [INFO] Handling signal: term
+2016-07-28T16:44:01.525499+00:00 app[web.1]: [2016-07-28 16:44:01 +0000] [3] [INFO] Shutting down: Master
+2016-07-28T16:44:01.697013+00:00 heroku[web.1]: Process exited with status 0
+2016-07-28T16:43:56.183660+00:00 heroku[api]: Deploy 0cd6ed9 by vincent.bannister@gmail.com
+2016-07-28T16:43:56.183660+00:00 heroku[api]: Release v51 created by vincent.bannister@gmail.com
+2016-07-28T16:44:04.295538+00:00 app[web.1]: [2016-07-28 16:44:04 +0000] [3] [INFO] Starting gunicorn 19.6.0
+2016-07-28T16:44:04.297241+00:00 app[web.1]: [2016-07-28 16:44:04 +0000] [3] [INFO] Listening at: http://0.0.0.0:17679 (3)
+2016-07-28T16:44:04.297750+00:00 app[web.1]: [2016-07-28 16:44:04 +0000] [3] [INFO] Using worker: sync
+2016-07-28T16:44:04.302947+00:00 app[web.1]: [2016-07-28 16:44:04 +0000] [9] [INFO] Booting worker with pid: 9
+2016-07-28T16:44:04.400010+00:00 app[web.1]: [2016-07-28 16:44:04 +0000] [10] [INFO] Booting worker with pid: 10
+2016-07-28T16:44:04.657681+00:00 heroku[web.1]: State changed from starting to up
+2016-07-28T16:48:48.698328+00:00 app[web.1]: Invoking Stalker...
+2016-07-28T16:48:48.757335+00:00 app[web.1]: ['273 Salter Path Rd,  Pine Knoll Shores, North Carolina', 'Vulpix,Ninetails,Pikachu,Ponyta,Dratini,Eevee,Squirtle,Dragonair,Geodude,Snorlax,Bulbasaur,Dragonite,Poliwag,Charizard,Charmander,Charmeleon,Ghastly']
+2016-07-28T16:48:48.757380+00:00 app[web.1]: 2
+2016-07-28T16:48:49.246424+00:00 app[web.1]: Kicked background action to poke-poll!
+2016-07-28T16:48:49.257697+00:00 app[web.1]: Starting....
+2016-07-28T16:48:49.375491+00:00 app[web.1]: [!] Your given location: 273 Salter Path Rd, Pine Knoll Shores, NC 28512, USA
+2016-07-28T16:48:49.375824+00:00 app[web.1]: [!] lat/long/alt: 34.694636 -76.817719 0.0
+2016-07-28T16:48:49.376688+00:00 app[web.1]: [!] login for: ilovepokego
+2016-07-28T16:48:49.839911+00:00 app[web.1]: [+] RPC Session Token: TGT-11876273-VNRjHY4b9Kii ...
+2016-07-28T16:48:50.225624+00:00 app[web.1]: Sleeping for 2 seconds to get around rate-limit.
+2016-07-28T16:48:52.226840+00:00 app[web.1]: [+] Received API endpoint: https://pgorelease.nianticlabs.com/plfe/152/rpc
+2016-07-28T16:48:49.254411+00:00 heroku[router]: at=info method=POST path="/poke-scan" host=glacial-sea-95399.herokuapp.com request_id=196c5fe1-cccc-4243-ae49-d817b0412746 fwd="54.174.114.150" dyno=web.1 connect=3ms service=646ms status=200 bytes=159
+2016-07-28T16:49:22.252013+00:00 app[web.1]: Process Process-1:
+2016-07-28T16:49:22.252807+00:00 app[web.1]: Traceback (most recent call last):
+2016-07-28T16:49:22.252849+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+2016-07-28T16:49:22.253018+00:00 app[web.1]:     self.run()
+2016-07-28T16:49:22.253020+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/multiprocessing/process.py", line 114, in run
+2016-07-28T16:49:22.253041+00:00 app[web.1]:     self._target(*self._args, **self._kwargs)
+2016-07-28T16:49:22.253042+00:00 app[web.1]:   File "/app/recieve.py", line 102, in longtask
+2016-07-28T16:49:22.253119+00:00 app[web.1]:     core.stalk_core("@" + username, repeatScan, POKEMON_TEST_USER, POKEMON_TEST_PASSWORD, location, pokeList)
+2016-07-28T16:49:22.253122+00:00 app[web.1]:   File "/app/core.py", line 323, in stalk_core
+2016-07-28T16:49:22.253396+00:00 app[web.1]:     response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
+2016-07-28T16:49:22.253398+00:00 app[web.1]:   File "/app/core.py", line 164, in get_profile
+2016-07-28T16:49:22.253423+00:00 app[web.1]:     return api_req(api, access_token, coords_lat, coords_long, 0, req, useauth = useauth)
+2016-07-28T16:49:22.253424+00:00 app[web.1]:   File "/app/core.py", line 118, in api_req
+2016-07-28T16:49:22.253445+00:00 app[web.1]:     p_ret.ParseFromString(r.content)
+2016-07-28T16:49:22.253448+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/message.py", line 186, in ParseFromString
+2016-07-28T16:49:22.253560+00:00 app[web.1]:     self.MergeFromString(serialized)
+2016-07-28T16:49:22.253562+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 844, in MergeFromString
+2016-07-28T16:49:22.253837+00:00 app[web.1]:     raise message_mod.DecodeError('Unexpected end-group tag.')
+2016-07-28T16:49:22.253840+00:00 app[web.1]: DecodeError: Unexpected end-group tag.
