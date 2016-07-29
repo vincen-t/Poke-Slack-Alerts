@@ -387,7 +387,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 pass
         
         if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
-            send_message(slack_user, "Poke-polling concluded! Searched for: " + str(searchList) + " for " str((time.time() - starttime)/60) + " minutes.") 
+            send_message(slack_user, "Poke-polling concluded! Searched for: " + str(searchList) + " for " + str((time.time() - starttime)/60) + " minutes.") 
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
