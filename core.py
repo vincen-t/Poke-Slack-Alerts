@@ -244,8 +244,7 @@ def heartbeat(api_endpoint, access_token, response, float_lat, float_long):
             m4,
             pokemon_pb2.RequestEnvelop.Requests(),
             m5)
-        ## Debug
-        if (not response):
+        if DEBUG:
             print response
         payload = response.payload[0]
         heartbeat = pokemon_pb2.ResponseEnvelop.HeartbeatPayload()
@@ -299,14 +298,20 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
     while(1):
         login_time = time.time()
         
+        creds_valid_once = False
         retry_10_times = 0
         while(retry_10_times < 10):
             try:
-                access_token = login_ptc(username, password)
-              
+                access_token = login_ptc(username, password)       
                 if access_token is None:
-                    print('[-] Wrong username/password or other unrecoverable login failure...')
-                    return
+                    if not creds_valid_once :
+                        print('[-] Wrong username/password or other unrecoverable login failure...')
+                        return
+                    else:
+                        raise Error('Unspecified Login Failure...')
+                        
+                creds_valid_once = True
+                    
                 print('[+] RPC Session Token: {} ...'.format(access_token[:25]))
         
                 api_endpoint = get_api_endpoint(access_token, orig_coords_lat, orig_coords_long)
@@ -318,8 +323,6 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 response = get_profile(access_token, api_endpoint, orig_coords_lat, orig_coords_long, None)
                 if response is not None:
                     print('[+] Login successful')
-                    if DEBUG:
-                        print(response)
                     payload = response.payload[0]
                     profile = pokemon_pb2.ResponseEnvelop.ProfilePayload()
                     profile.ParseFromString(payload)
@@ -343,9 +346,9 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 print e  
                 session_reset() ## HACK BUG: Maybe best solution?
                 print ">>>>>>>>> WARN: MAIN: Session reset!"     
-                print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number ", retry_10_times 
-                sleep(retry_10_times * 60)
+                print ">>>>>>>>> WARN: MAIN: Sleeping for N * 60 seconds before retry; attempt number: ", retry_10_times 
                 retry_10_times = retry_10_times + 1
+                sleep(retry_10_times * 60)
                 pass
     
         while(1):
@@ -384,7 +387,7 @@ def stalk_core(slack_user, scanRepeatedly, username, password, location, searchL
                 pass
         
         if(time.time() - starttime > int(TOTAL_WORKER_LIFETIME)):
-            send_message(slack_user, "Poke-polling concluded! Searched for:" + searchList) 
+            send_message(slack_user, "Poke-polling concluded! Searched for: " + str(searchList) + " for " str((time.time() - starttime)/60) + " minutes.") 
             break
     
     # Hm. Ok, back up - you want each request to come in, log in once, then run a bunch of times. 
