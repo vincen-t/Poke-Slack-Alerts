@@ -24,3 +24,6 @@ Usage (Running):
  * DEBUG = os.environ.get('DEBUG_STATE', None)
  * RADS_TO_M = 6366468.241830914
  * python recieve.py 
+ * 
+ 
+Also, many thanks to tejado's python pgoapi, Mila432's API, leegao's additions and https://github.com/AHAAAAAAA/PokemonGo-Map
